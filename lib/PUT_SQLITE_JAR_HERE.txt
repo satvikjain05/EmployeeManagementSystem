@@ -1,0 +1,11 @@
+Place your SQLite JDBC driver JAR file here.
+
+Download from: https://github.com/xerial/sqlite-jdbc/releases
+
+Example filename: sqlite-jdbc-3.46.0.0.jar
+
+After downloading, add it to the VS Code classpath:
+  - Open VS Code Explorer → JAVA PROJECTS → Referenced Libraries → click "+"
+  - Select this jar file
+
+See README.md for full instructions.
