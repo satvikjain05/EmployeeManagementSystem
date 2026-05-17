@@ -1,0 +1,34 @@
+# Employee Management System - Git ignore
+
+# SQLite database file (auto-created at runtime)
+ems.db
+
+# Do not commit downloaded JDBC driver jars; keep libs local
+lib/*.jar
+/lib/*.jar
+
+# VS Code workspace settings (optional: remove if you want to share editor configs)
+.vscode/
+
+# Compiled Java classes and build output
+*.class
+/out/
+bin/
+
+# Common IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Build folders
+/target/
+/build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
