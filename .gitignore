@@ -3,16 +3,16 @@
 # SQLite database file (auto-created at runtime)
 ems.db
 
-# Do not commit downloaded JDBC driver jars; keep libs local
+# JDBC driver jars (do not commit binaries)
 lib/*.jar
-/lib/*.jar
+lib/sqlite-jdbc-*.jar
 
-# VS Code workspace settings (optional: remove if you want to share editor configs)
+# VS Code workspace settings (optional: remove to share editor configs)
 .vscode/
 
 # Compiled Java classes and build output
 *.class
-/out/
+out/
 bin/
 
 # Common IDE files
@@ -23,8 +23,8 @@ bin/
 .settings/
 
 # Build folders
-/target/
-/build/
+target/
+build/
 
 # Logs
 *.log
