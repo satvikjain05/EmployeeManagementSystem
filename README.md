@@ -1,5 +1,5 @@
 # 🏢 Employee Management System
-**Built with:** Java Swing + SQLite JDBC  
+**Built with:** Java Swing + local file storage  
 **Level:** Beginner-friendly | College Project
 
 ---
@@ -30,7 +30,7 @@ EmployeeManagementSystem/
 │               └── Validator.java         ← Input validation helper
 │
 ├── lib/
-│   └── sqlite-jdbc-3.x.x.jar             ← ⚠ YOU MUST DOWNLOAD THIS (see below)
+│   └── PUT_SQLITE_JAR_HERE.txt            ← Optional helper file; no external JDBC driver is required now
 │
 ├── sql/
 │   └── schema.sql                         ← SQL reference (table + sample data)
@@ -41,7 +41,7 @@ EmployeeManagementSystem/
 └── README.md                              ← This file
 ```
 
-> **Note:** `ems.db` (the SQLite database file) is auto-created when you first run the app.
+> **Note:** `employees.csv` is created when you first run the app.
 
 ---
 
@@ -57,25 +57,12 @@ EmployeeManagementSystem/
 
 ---
 
-### Step 2: Download the SQLite JDBC Driver (Required!)
-1. Go to: https://github.com/xerial/sqlite-jdbc/releases
-2. Download the latest `.jar` file (e.g., `sqlite-jdbc-3.46.0.0.jar`)
-3. Rename it to something simple or leave as-is
-4. Copy it into the `lib/` folder of this project
+### Step 2: No external JDBC driver required
+This project now stores employee data in `employees.csv` using built-in Java file I/O.
 
 ---
 
-### Step 3: Add the JAR to VS Code Classpath
-1. Open the project folder in VS Code: `File → Open Folder`
-2. Look for `JAVA PROJECTS` in the left Explorer panel
-3. Expand your project → Click `Referenced Libraries`
-4. Click the `+` button → Navigate to `lib/` → Select the `.jar` file
-
-   **Alternative:** Edit `.vscode/launch.json` and update the jar filename in `classPaths`.
-
----
-
-### Step 4: Run the Project
+### Step 3: Run the Project
 1. Open `src/com/ems/Main.java`
 2. Click the ▶ **Run** button that appears above `public static void main`
    — OR press `F5`
@@ -83,7 +70,7 @@ EmployeeManagementSystem/
 
 ---
 
-### Step 5: Login
+### Step 4: Login
 ```
 Username: admin
 Password: admin123
@@ -92,10 +79,10 @@ Password: admin123
 ---
 
 ## 🗄️ Database Info
-- **Type:** SQLite (no installation needed!)
-- **File:** `ems.db` (created automatically in the project root)
-- **Table:** `employees` (created automatically on first run)
-- You can open `ems.db` with **DB Browser for SQLite** (free tool) to see data visually
+- **Type:** Local file storage
+- **File:** `employees.csv` (created automatically in the project root)
+- **Format:** Pipe-delimited text file with a header row
+- **Note:** No external database driver is required
 
 ---
 

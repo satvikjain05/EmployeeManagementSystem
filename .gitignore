@@ -2,6 +2,8 @@
 
 # SQLite database file (auto-created at runtime)
 ems.db
+# Local file-based storage
+employees.csv
 
 # JDBC driver jars (do not commit binaries)
 lib/*.jar
