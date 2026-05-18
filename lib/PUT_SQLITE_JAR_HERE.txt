@@ -1,11 +1,5 @@
-Place your SQLite JDBC driver JAR file here.
+This project no longer requires an external SQLite JDBC driver.
 
-Download from: https://github.com/xerial/sqlite-jdbc/releases
+Employee data is stored in `employees.csv` using built-in Java file I/O.
 
-Example filename: sqlite-jdbc-3.46.0.0.jar
-
-After downloading, add it to the VS Code classpath:
-  - Open VS Code Explorer → JAVA PROJECTS → Referenced Libraries → click "+"
-  - Select this jar file
-
-See README.md for full instructions.
+If you keep this file, note that it is only a placeholder and not required for the app to run.
