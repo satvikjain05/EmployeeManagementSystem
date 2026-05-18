@@ -1,56 +1,29 @@
 package com.ems.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * DBConnection.java
- * This class handles the database connection using JDBC.
- * It uses SQLite so no separate server setup is needed — great for beginners!
- * The database file (ems.db) is automatically created in the project folder.
+ * This helper initializes the employee storage file.
+ * The app stores employees in a local CSV-style file instead of a database.
  */
 public class DBConnection {
 
-    // SQLite database file path — saved inside the project folder
-    private static final String DB_URL = "jdbc:sqlite:ems.db";
+    private static final String EMPLOYEE_FILE = "employees.csv";
+    private static final String HEADER = "id|name|salary|department|designation";
 
-    // Single shared connection (singleton pattern)
-    private static Connection connection = null;
-
-    /**
-     * Returns the database connection.
-     * Creates a new connection if one doesn't exist yet.
-     */
-    public static Connection getConnection() {
+    public static void initializeStorage() {
         try {
-            if (connection == null || connection.isClosed()) {
-                // Load the SQLite JDBC driver
-                Class.forName("org.sqlite.JDBC");
-                // Connect to the SQLite database file
-                connection = DriverManager.getConnection(DB_URL);
-                System.out.println("✅ Database connected successfully!");
+            Path path = Paths.get(EMPLOYEE_FILE);
+            if (Files.notExists(path)) {
+                Files.write(path, (HEADER + System.lineSeparator()).getBytes());
+                System.out.println("✅ Employee storage file created: " + EMPLOYEE_FILE);
             }
-        } catch (ClassNotFoundException e) {
-            System.out.println("❌ JDBC Driver not found! Make sure sqlite-jdbc.jar is in /lib folder.");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.out.println("❌ Database connection failed!");
-            e.printStackTrace();
-        }
-        return connection;
-    }
-
-    /**
-     * Closes the database connection when the app exits.
-     */
-    public static void closeConnection() {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-                System.out.println("🔒 Database connection closed.");
-            }
-        } catch (SQLException e) {
+        } catch (IOException e) {
+            System.out.println("❌ Failed to create employee storage file.");
             e.printStackTrace();
         }
     }
